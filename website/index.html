@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">&#9764; HMS</div>
+            <h1>Hospital Management System</h1>
+            <p class="subtitle">Emergency Department Patient Triage &amp; Management</p>
+        </div>
+    </header>
+
+    <!-- Stats Dashboard -->
+    <section class="dashboard">
+        <div class="stat-card">
+            <div class="stat-number" id="totalPatients">0</div>
+            <div class="stat-label">Total Waiting</div>
+        </div>
+        <div class="stat-card critical">
+            <div class="stat-number" id="criticalCount">0</div>
+            <div class="stat-label">Critical</div>
+        </div>
+        <div class="stat-card high">
+            <div class="stat-number" id="highCount">0</div>
+            <div class="stat-label">High</div>
+        </div>
+        <div class="stat-card medium">
+            <div class="stat-number" id="mediumCount">0</div>
+            <div class="stat-label">Medium</div>
+        </div>
+        <div class="stat-card low">
+            <div class="stat-number" id="lowCount">0</div>
+            <div class="stat-label">Low</div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Left Panel: Registration Form -->
+        <section class="panel register-panel">
+            <h2>&#128203; Register New Patient</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="patientName">Patient Name</label>
+                    <input type="text" id="patientName" placeholder="Enter full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="patientAge">Age</label>
+                    <input type="number" id="patientAge" min="1" max="120" placeholder="1-120" required>
+                </div>
+                <div class="form-group">
+                    <label for="patientDisease">Medical Condition</label>
+                    <input type="text" id="patientDisease" placeholder="e.g., Fever, Fracture, Emergency" required>
+                </div>
+                <div class="form-group">
+                    <label for="patientPriority">Priority Level</label>
+                    <select id="patientPriority" required>
+                        <option value="">-- Select Priority --</option>
+                        <option value="1">1 - Low (Non-emergency)</option>
+                        <option value="2">2 - Medium (Requires attention)</option>
+                        <option value="3">3 - High (Serious condition)</option>
+                        <option value="4">4 - Critical (Life-threatening)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-register">Register Patient</button>
+            </form>
+
+            <!-- Search -->
+            <div class="search-section">
+                <h3>&#128269; Search Patient</h3>
+                <div class="search-row">
+                    <input type="number" id="searchId" placeholder="Enter Patient ID">
+                    <button class="btn btn-search" onclick="searchPatient()">Search</button>
+                </div>
+                <div id="searchResult"></div>
+            </div>
+        </section>
+
+        <!-- Right Panel: Patient Queue -->
+        <section class="panel queue-panel">
+            <div class="queue-header">
+                <h2>&#128203; Patient Waiting List (Treatment Order)</h2>
+                <div class="queue-actions">
+                    <button class="btn btn-treat" onclick="treatPatient()">&#9889; Treat Next</button>
+                </div>
+            </div>
+
+            <!-- Next Patient Highlight -->
+            <div id="nextPatientCard" class="next-patient-card" style="display:none;">
+                <span class="next-label">NEXT &#8594;</span>
+                <span id="nextPatientInfo"></span>
+            </div>
+
+            <!-- Patient Table -->
+            <div class="table-container">
+                <table id="patientTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Condition</th>
+                            <th>Priority</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="patientTableBody">
+                        <tr>
+                            <td colspan="7" class="empty-msg">No patients in the queue</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Treatment History -->
+    <section class="panel history-panel">
+        <h2>&#128214; Treatment History</h2>
+        <div class="table-container">
+            <table id="historyTable">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Condition</th>
+                        <th>Priority</th>
+                        <th>Treated At</th>
+                    </tr>
+                </thead>
+                <tbody id="historyTableBody">
+                    <tr>
+                        <td colspan="6" class="empty-msg">No patients treated yet</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Hospital Management System</p>
+        <p>Developed by <strong>Krishnam Kothari</strong> &bull; Academic Project 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

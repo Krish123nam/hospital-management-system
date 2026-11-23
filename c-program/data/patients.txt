@@ -1,0 +1,3 @@
+1005|sita |30|headace |3|5
+1006|Sunil|29|Fracture|3|6
+1001|rahul |21|fever|1|1

@@ -1,0 +1,439 @@
+/* ============================================
+   Hospital Management System - Web Styling
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f4f8;
+    color: #2d3748;
+    line-height: 1.6;
+}
+
+/* --- Header --- */
+header {
+    background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
+    color: white;
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    font-size: 2.2rem;
+    margin-bottom: 4px;
+}
+
+header h1 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+header .subtitle {
+    font-size: 0.95rem;
+    opacity: 0.88;
+}
+
+/* --- Dashboard Stats --- */
+.dashboard {
+    display: flex;
+    gap: 15px;
+    padding: 20px 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 25px;
+    text-align: center;
+    min-width: 120px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid #2b6cb0;
+    transition: transform 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+}
+
+.stat-card.critical { border-top-color: #e53e3e; }
+.stat-card.high     { border-top-color: #ed8936; }
+.stat-card.medium   { border-top-color: #ecc94b; }
+.stat-card.low      { border-top-color: #48bb78; }
+.stat-card.status   { border-top-color: #3182ce; }
+
+.stat-number {
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: #1a365d;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: #718096;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+}
+
+/* --- Main Layout --- */
+main {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 20px;
+    padding: 0 30px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+    main {
+        grid-template-columns: 1fr;
+        padding: 0 15px 20px;
+    }
+    .dashboard {
+        padding: 15px;
+    }
+}
+
+/* --- Panels --- */
+.panel {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.panel h2 {
+    font-size: 1.2rem;
+    color: #1a365d;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.history-panel {
+    margin: 0 30px 30px;
+    max-width: 1340px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 900px) {
+    .history-panel {
+        margin: 0 15px 20px;
+    }
+}
+
+/* --- Form --- */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+    background: #f7fafc;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #2b6cb0;
+    background: white;
+}
+
+/* --- Buttons --- */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-register {
+    width: 100%;
+    background: linear-gradient(135deg, #2b6cb0, #3182ce);
+    color: white;
+    padding: 12px;
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+.btn-register:hover {
+    background: linear-gradient(135deg, #2c5282, #2b6cb0);
+}
+
+.btn-treat {
+    background: linear-gradient(135deg, #e53e3e, #fc8181);
+    color: white;
+}
+
+.btn-treat:hover {
+    background: linear-gradient(135deg, #c53030, #e53e3e);
+}
+
+.btn-search {
+    background: #2b6cb0;
+    color: white;
+    padding: 10px 15px;
+}
+
+.btn-delete {
+    background: #e53e3e;
+    color: white;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    border-radius: 6px;
+}
+
+.btn-delete:hover {
+    background: #c53030;
+}
+
+/* --- Search --- */
+.search-section {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 2px solid #e2e8f0;
+}
+
+.search-section h3 {
+    font-size: 1rem;
+    color: #1a365d;
+    margin-bottom: 10px;
+}
+
+.search-row {
+    display: flex;
+    gap: 8px;
+}
+
+.search-row input {
+    flex: 1;
+    padding: 10px 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background: #f7fafc;
+}
+
+.search-row input:focus {
+    outline: none;
+    border-color: #2b6cb0;
+    background: white;
+}
+
+#searchResult {
+    margin-top: 10px;
+}
+
+.search-found {
+    background: #f0fff4;
+    border: 1px solid #c6f6d5;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.search-not-found {
+    background: #fff5f5;
+    border: 1px solid #fed7d7;
+    border-radius: 8px;
+    padding: 12px;
+    color: #c53030;
+}
+
+/* --- Queue Header --- */
+.queue-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.queue-header h2 {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+/* --- Next Patient Card --- */
+.next-patient-card {
+    background: linear-gradient(135deg, #fff5f5, #fed7d7);
+    border: 2px solid #fc8181;
+    border-radius: 10px;
+    padding: 12px 18px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(229, 62, 62, 0.3); }
+    50%      { box-shadow: 0 0 0 8px rgba(229, 62, 62, 0); }
+}
+
+.next-label {
+    background: #e53e3e;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+#nextPatientInfo {
+    font-weight: 600;
+    color: #2d3748;
+}
+
+/* --- Table --- */
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead th {
+    background: #edf2f7;
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #4a5568;
+    border-bottom: 2px solid #cbd5e0;
+}
+
+tbody td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 0.9rem;
+}
+
+tbody tr:hover {
+    background: #f7fafc;
+}
+
+.empty-msg {
+    text-align: center;
+    color: #a0aec0;
+    padding: 30px !important;
+    font-style: italic;
+}
+
+/* --- Priority Badges --- */
+.priority-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.priority-4 {
+    background: #fff5f5;
+    color: #c53030;
+    border: 1px solid #feb2b2;
+}
+
+.priority-3 {
+    background: #fffaf0;
+    color: #c05621;
+    border: 1px solid #fbd38d;
+}
+
+.priority-2 {
+    background: #fffff0;
+    color: #975a16;
+    border: 1px solid #fefcbf;
+}
+
+.priority-1 {
+    background: #f0fff4;
+    color: #276749;
+    border: 1px solid #c6f6d5;
+}
+
+/* --- Toast Notification --- */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 15px 25px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.4s ease;
+    z-index: 1000;
+    max-width: 400px;
+}
+
+.toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.toast.success { background: linear-gradient(135deg, #48bb78, #38a169); }
+.toast.error   { background: linear-gradient(135deg, #e53e3e, #c53030); }
+.toast.info    { background: linear-gradient(135deg, #2b6cb0, #3182ce); }
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #718096;
+    font-size: 0.85rem;
+    border-top: 1px solid #e2e8f0;
+    margin-top: 10px;
+}

@@ -1,0 +1,12 @@
+# Compiled binaries and executables
+*.exe
+*.o
+*.obj
+*.tmp
+
+# Visual Studio Code workspace settings
+.vscode/
+
+# Output/temp files
+out.txt
+*.log
